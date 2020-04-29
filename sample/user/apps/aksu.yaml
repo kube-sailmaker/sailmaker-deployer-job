@@ -1,0 +1,42 @@
+#appname, probes
+name: aksu
+liveness_probe: /app/health
+readiness_probe: /app/health
+
+#version, artifact id will be added by deployer
+annotations:
+  lang: node
+  artifact_type: microservice
+  framework: node
+  owner: team1/person
+  email: team/person email
+
+resources:
+  - elasticsearch-account:test
+
+capabilities:
+  - prometheus
+  - vault
+  - file-password
+  - read-kubernetes
+
+mixins:
+ - node:node-microservices
+
+template:
+- name: test
+  config:
+    cpu: c1
+    memory: m2
+    logging_level: LOG
+
+- name: lab
+  configs:
+    cpu: c1
+    memory: m2
+
+- name: prod
+  configs:
+    replicas: 2
+    cpu: c3
+    memory: m3

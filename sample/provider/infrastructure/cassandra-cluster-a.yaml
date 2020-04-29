@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Infrastructure
+metadata:
+  name: cassandra-a
+spec:
+  template:
+    - name: test
+      attributes:
+        contact_points: dse-1.test.local.cluster:9042, dse-2.test.local.cluster:9042
+        ssl: true
+
+    - name: alpha
+      attributes:
+        contact_points: dse-1.alpha.local.cluster:9042, dse-2.alpha.local.cluster:9042
+        ssl: true
+
+    - name: prod
+      attributes:
+        contact_points: dse-1.prod.local.cluster:9042, dse-2.prod.local.cluster:9042
+        ssl: true

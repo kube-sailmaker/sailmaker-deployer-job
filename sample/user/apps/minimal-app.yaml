@@ -1,0 +1,19 @@
+name: minimal-app
+
+annotations:
+  owner: team1
+  email: team@localhost
+
+resources: []
+
+capabilities: []
+
+mixins:
+  - tiny
+
+template:
+  - name: test
+
+  - name: lab
+
+  - name: prod

@@ -1,0 +1,13 @@
+#scope - resource-requirement-bundles, replica, cpu, memory, limit, request, entrypoint, cmd
+mixin:
+  - name: node-microservices
+    cpu: c1
+    memory: m1
+    replicas: 1
+    resource-limit-strategy: "half" #half, exact, none
+    cmd:
+      - node
+      - /opt/app/app.js
+    #not required unless someone wants to hijack it
+    entrypoint:
+    - /runner.sh

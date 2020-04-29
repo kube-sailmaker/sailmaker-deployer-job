@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Resource
+metadata:
+  name: custom-env-group
+spec:
+  template:
+    - name: test1
+      element: 
+        log_level: INFO
+
+    - name: alpha
+      element: 
+        log_level: WARN
+
+    - name: prod
+      element: 
+        log_level: WARN

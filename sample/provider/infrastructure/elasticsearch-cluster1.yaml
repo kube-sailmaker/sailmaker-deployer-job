@@ -1,0 +1,24 @@
+#apiVersion can be generated on the fly to register as Crd (if needed)
+apiVersion: v1
+kind: Infrastructure
+metadata:
+  name: cluster1
+spec:
+  template:
+    - name: test
+      attributes:
+        contact_points: es-1.test.user.local.cluster:9200, es-2.test.user.local.cluster:9200
+        ssl: false
+        authenticate: false
+
+    - nane: alpha
+      attributes:
+        contact_points: es-1.alpha.user.local.cluster:9200, es-2.alpha.user.local.cluster:9200
+        ssl: false
+        authenticate: true
+
+    - name: prod
+      attributes:
+        contact_points: es-1.prod.user.local.cluster:9200, es-2.prod.user.local.cluster:9200
+        ssl: true
+        authenticate: true

@@ -1,0 +1,9 @@
+- name: equal-request-limit
+  resource-limit-strategy: "exact"
+  salience: 100
+
+- name: tiny
+  cpu: c0
+  memory: m0
+  resource-limit-strategy: "exact"
+  replicas: 1

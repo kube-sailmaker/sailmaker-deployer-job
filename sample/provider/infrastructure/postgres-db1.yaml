@@ -1,0 +1,19 @@
+kind: Infrastructure
+metadata:
+  name: postgres-db1
+spec:
+  template:
+    - name: test
+      attributes:
+        contact_points: jdbc:postgres://ps-1.test.local.cluster:5432
+        ssl: true
+
+    - name: alpha
+      attributes:
+        contact_points: jdbc:postgres://ps-1.alpha.local.cluster:5432
+        ssl: true
+
+    - name: prod
+      attributes:
+        contact_points: jdbc:postgres://ps-1.prod.local.cluster:5432
+        ssl: true

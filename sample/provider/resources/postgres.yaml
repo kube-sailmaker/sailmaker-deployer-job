@@ -1,0 +1,27 @@
+#env specific infrastructure
+apiVersion: v1
+kind: Resource
+metadata:
+  name: postgres-1
+
+spec:
+  template:
+    - name: test1
+      database: tst_user
+      infrastructure:
+        - postgres-db1/test
+
+    - name: sit
+      database: sit_user
+      infrastructure:
+        - postgres-db1/test
+
+    - name: alpha
+      database: user
+      infrastructure:
+        - postgres-db1/alpha
+
+    - name: prod
+      database: user
+      infrastructure:
+        - postgres-db1/prod

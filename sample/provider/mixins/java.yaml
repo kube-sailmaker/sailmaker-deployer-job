@@ -1,0 +1,25 @@
+mixin:
+  #scope - resource-requirement-bundles, replica, cpu, memory, limit, request, entrypoint, cmd
+  - name: java-default
+    cpu: c1
+    memory: m1
+    replicas: 1
+    resource-limit-strategy: "half" #half, exact, none
+    env:
+      JAVA_OPTS: "-Xms256m -Xmx256m -Dlog4j.configurationFile=/opt/app/log/log4j2.xml"
+
+  - name: java-microservices
+    cpu: c1
+    memory: m1
+    replicas: 1
+    resource-limit-strategy: "half" #half, exact, none
+    env:
+      JAVA_OPTS: "-Xms256m -Xmx256m -Dlog4j.configurationFile=/opt/app/log/log4j2.xml"
+    cmd:
+    #unless your command is not
+      - java
+      - $JAVA_OPTS
+      - /opt/app/app.jar
+    #not required unless someone wants to hijack it
+    entrypoint:
+     - /runner.sh

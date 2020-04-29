@@ -1,0 +1,45 @@
+#appname, probes
+name: adimono
+liveness_probe: /health
+readiness_probe: /health
+
+#version, artifact id will be added by deployer
+annotations:
+  lang: java
+  artifact_type: microservice
+  framework: springboot
+  owner: team1/person
+  email: team/person email
+
+resources:
+  - elasticsearch-user:sit
+  - cassandra:test1
+  - custom-env-group:test1
+  
+#service account, env from resources, configmap from vault, file-password, auto injected  
+capabilities:
+  - prometheus
+  - vault
+  - file-password
+  - read-kubernetes
+
+mixins:
+ - java:java-microservices
+
+template:
+- name: test
+  config:
+    cpu: c05
+    memory: m1
+    logging_level: DEBUG
+    
+- name: lab
+  config:
+    cpu: c1
+    memory: m2
+
+- name: prod
+  config:
+    replicas: 2
+    cpu: c3
+    memory: m3

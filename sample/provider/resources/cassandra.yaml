@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Resource
+metadata:
+  name: cassandra-a
+spec:
+  template:
+    - name: test1
+      infrastructure: cassandra-cluster-a:test
+      element:
+        user_keyspace: tst_user
+        account_keyspace: tst_account
+    
+    - name: sit
+      infrastructure: cassandra-cluster-a:test
+      element: 
+        user_keyspace: sit_user
+        account_keyspace: sit_account
+      
+    - name: alpha
+      infrastructure: cassandra-a:alpha
+      element:
+        user_keyspace: user
+        account_keyspace: account
+        
+
+    - name: prod
+      infrastructure: cassandra-a:prod
+      element: 
+        user_keyspace: user
+        account_keyspace: account
+      
