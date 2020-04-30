@@ -8,26 +8,27 @@ import (
 )
 
 type JobConfig struct {
-	ResourcesLocation string  `json:"resources"`
-	AppsLocation      string  `json:"apps"`
+	ResourcesLocation string `json:"resources"`
+	AppsLocation      string `json:"apps"`
 	Payload           string `json:"releases"`
+	OutputLocation    string `json:"output"`
 }
 
 func ProcessDeployment(dOpts *flag.FlagSet) *JobConfig {
 	err := dOpts.Parse(os.Args[2:])
 	if err != nil {
-		fmt.Println(err)
 		ExitWithUsage("Parse Error", dOpts)
 	}
 	resourcesLocation := dOpts.Lookup("resources").Value.String()
 	appDef := dOpts.Lookup("apps").Value.String()
 	releases := dOpts.Lookup("releases").Value.String()
+	output := dOpts.Lookup("output").Value.String()
 
 	if !dOpts.Parsed() {
 		ExitWithUsage("Parse Error", dOpts)
 	}
-	if resourcesLocation == "" || appDef == "" {
-		ExitWithUsage("Resources and App Def required", dOpts)
+	if resourcesLocation == "" || appDef == "" || output == "" {
+		ExitWithUsage("Resources, Releases and Output Location required", dOpts)
 	}
 	var payload = ""
 	if releases == "" {
@@ -45,8 +46,9 @@ func ProcessDeployment(dOpts *flag.FlagSet) *JobConfig {
 	}
 	return &JobConfig{
 		ResourcesLocation: resourcesLocation,
-		AppsLocation: appDef,
-		Payload: payload,
+		AppsLocation:      appDef,
+		Payload:           payload,
+		OutputLocation: output,
 	}
 
 }
@@ -56,6 +58,7 @@ func FlagSets() map[string]*flag.FlagSet {
 	dOpts.String("resources", "", "Resource Location where infrastructure, mixins and resources are")
 	dOpts.String("apps", "", "Location where Application Definitions are")
 	dOpts.String("releases", "", "Location where release file is")
+	dOpts.String("output", "", "Output Directory for manifests")
 	return map[string]*flag.FlagSet{
 		"deploy": dOpts,
 	}
