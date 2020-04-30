@@ -1,9 +1,16 @@
-- name: equal-request-limit
-  resource-limit-strategy: "exact"
-  salience: 100
+mixin:
+  - name: equal-request-limit
+    resource-limit-strategy: "exact"
+    salience: 100
 
-- name: tiny
-  cpu: c0
-  memory: m0
-  resource-limit-strategy: "exact"
-  replicas: 1
+  - name: tiny
+    cpu: c0
+    memory: m0
+    resource-limit-strategy: "exact"
+    replicas: 1
+
+  - name: sleep
+    cmd:
+      - "/bin/sh"
+      - "-c"
+      - 'i=0; while true; do echo "log"; i=$((i+1)); sleep 10; done'

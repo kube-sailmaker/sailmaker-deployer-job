@@ -5,16 +5,16 @@ metadata:
 spec:
   template:
     - name: test
-      infrastructure: elasticsearch-cluster2:test
+      infrastructure: elasticsearch-cluster2/test
       element:
         alias: tst_account
 
     - name: alpha
-      infrastructure: elasticsearch-cluster2:alpha
+      infrastructure: elasticsearch-cluster2/alpha
       element:
         alias: account
 
     - name: prod
-      infrastructure: elasticsearch-cluster2:prod
+      infrastructure: elasticsearch-cluster2/prod
       element:
         alias: account

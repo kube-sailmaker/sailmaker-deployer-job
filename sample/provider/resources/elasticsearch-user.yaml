@@ -5,17 +5,17 @@ metadata:
 spec:
   template:
     - name: test1
-      infrastructure: elasticsearch-cluster1:test
+      infrastructure: elasticsearch-cluster1/test
       element: 
         alias: tst_user
       
     - name: sit
-      infrastructure: elasticsearch-cluster1:test
+      infrastructure: elasticsearch-cluster1/test
       element: 
         alias: tst_user
       
     - name: alpha
-      infrastructure: elasticsearch-cluster1:alpha
+      infrastructure: elasticsearch-cluster1/alpha
       element:
         alias: user
       

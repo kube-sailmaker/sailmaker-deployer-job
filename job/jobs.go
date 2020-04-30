@@ -1,14 +1,25 @@
 package job
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 	"github.com/kube-sailmaker/sailmaker-deployer-job/opts"
 	"github.com/kube-sailmaker/sailmaker-deployer-job/utils"
+	"github.com/kube-sailmaker/template-gen/entry"
+	gmodel "github.com/kube-sailmaker/template-gen/model"
 	"log"
 )
 
 func Process(config *opts.JobConfig) {
-	err := applyOutput(config.OutputLocation)
+	buff := bytes.NewBufferString(config.Payload)
+	var appSpec gmodel.AppSpec
+	err := json.NewDecoder(buff).Decode(&appSpec)
+	if err != nil {
+		log.Fatalf("error parsing release payload %v", err)
+	}
+	entry.TemplateGenerator(&appSpec, config.AppsLocation, config.ResourcesLocation, config.OutputLocation)
+	err = applyOutput(config.OutputLocation)
 	if err != nil {
 		log.Fatalf("error applying manifests [%v]", err)
 	}

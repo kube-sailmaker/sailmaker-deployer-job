@@ -7,21 +7,21 @@ metadata:
 spec:
   template:
     - name: test1
-      database: tst_user
-      infrastructure:
-        - postgres-db1/test
+      infrastructure: postgres-db1/test
+      element:
+        database: tst_user
 
     - name: sit
-      database: sit_user
-      infrastructure:
-        - postgres-db1/test
+      infrastructure: postgres-db1/test
+      element:
+        database: sit_user
 
     - name: alpha
-      database: user
-      infrastructure:
-        - postgres-db1/alpha
+      infrastructure: postgres-db1/alpha
+      element:
+        database: user
 
     - name: prod
-      database: user
-      infrastructure:
-        - postgres-db1/prod
+      infrastructure: postgres-db1/prod
+      element:
+        database: user

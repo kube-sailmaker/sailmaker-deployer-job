@@ -1,0 +1,13 @@
+{
+  "namespace": "release-1",
+  "apps": [
+    {
+      "name": "busybox",
+      "version": "latest"
+    },
+    {
+      "name": "nginx",
+      "version": "latest"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 #appname, probes
-name: adimono
+name: nginx
 liveness_probe: /health
 readiness_probe: /health
 
@@ -11,10 +11,7 @@ annotations:
   owner: team1/person
   email: team/person email
 
-resources:
-  - elasticsearch-user:sit
-  - cassandra:test1
-  - custom-env-group:test1
+resources: []
   
 #service account, env from resources, configmap from vault, file-password, auto injected  
 capabilities:
@@ -23,8 +20,7 @@ capabilities:
   - file-password
   - read-kubernetes
 
-mixins:
- - java:java-microservices
+mixins: []
 
 template:
 - name: test
