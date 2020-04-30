@@ -1,5 +1,7 @@
 github.com/kube-sailmaker/template-gen v0.1.0 h1:X7MwvOffW9p7yG3cyYH77vMx0F5Fzk1dRwTE9uLGmHc=
 github.com/kube-sailmaker/template-gen v0.1.0/go.mod h1:yhjyKEIdOieUVdvlG0Meq+rLRgGetT+pAxgxnhOnQ10=
+github.com/kube-sailmaker/template-gen v0.2.0 h1:M/1n618nj3pIkcY0IQ2h2yA89Tc7izX/osIDQnkyTMA=
+github.com/kube-sailmaker/template-gen v0.2.0/go.mod h1:yhjyKEIdOieUVdvlG0Meq+rLRgGetT+pAxgxnhOnQ10=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v2 v2.2.8 h1:obN1ZagJSUGI0Ek/LBmuj4SNLPfIny3KsKFopxRdj10=
 gopkg.in/yaml.v2 v2.2.8/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=

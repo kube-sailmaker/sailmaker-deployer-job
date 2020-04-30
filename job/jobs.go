@@ -20,7 +20,10 @@ func Process(config *opts.JobConfig) {
 	}
 	appSpec.Environment = "test"
 	appSpec.ReleaseName = appSpec.Namespace
-	entry.TemplateGenerator(&appSpec, config.AppsLocation, config.ResourcesLocation, config.OutputLocation)
+	err = entry.TemplateGenerator(&appSpec, config.AppsLocation, config.ResourcesLocation, config.OutputLocation)
+	if err != nil {
+		log.Fatalf("error generating template %v", err)
+	}
 	err = applyOutput(config.OutputLocation)
 	if err != nil {
 		log.Fatalf("error applying manifests [%v]", err)
