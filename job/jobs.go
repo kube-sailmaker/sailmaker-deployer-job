@@ -18,6 +18,8 @@ func Process(config *opts.JobConfig) {
 	if err != nil {
 		log.Fatalf("error parsing release payload %v", err)
 	}
+	appSpec.Environment = "test"
+	appSpec.ReleaseName = appSpec.Namespace
 	entry.TemplateGenerator(&appSpec, config.AppsLocation, config.ResourcesLocation, config.OutputLocation)
 	err = applyOutput(config.OutputLocation)
 	if err != nil {

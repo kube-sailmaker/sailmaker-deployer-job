@@ -1,6 +1,6 @@
 {
   "namespace": "release-1",
-  "apps": [
+  "app": [
     {
       "name": "busybox",
       "version": "latest"
