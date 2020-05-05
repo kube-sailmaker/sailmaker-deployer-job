@@ -1,7 +1,8 @@
 #appname, probes
 name: nginx
-liveness_probe: /health
-readiness_probe: /health
+liveness_probe: /
+readiness_probe: /
+container-port: 80
 
 #version, artifact id will be added by deployer
 annotations:

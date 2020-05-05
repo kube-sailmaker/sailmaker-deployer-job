@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"strings"
 )
-var filePattern = regexp.MustCompile(`^(.*)/([A-Za-z\-_\.0-9]+)\.yaml$`)
+var filePattern = regexp.MustCompile(`^.*/(.*)/([A-Za-z\-_\.0-9]+)\.yaml$`)
 
 func WalkPath(output string) (map[string]int, error) {
 	fI, fE := os.Stat(output)

@@ -1,7 +1,6 @@
 #appname, probes
 name: busybox
-liveness_probe: /health
-readiness_probe: /health
+container-port: 80
 
 #version, artifact id will be added by deployer
 annotations:
