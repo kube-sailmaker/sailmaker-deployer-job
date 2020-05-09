@@ -82,7 +82,7 @@ func applyOutput(depSummary *gmodel.DeploymentItemSummary, output string) error 
 		log.Println("-------------------------------------------")
 		log.Printf("Applying %d items for %s in %s\n", folders[item.Name], item.Name, item.Path)
 
-		err := utils.ExecuteAndDisplay("kubectl", []string{"apply", "-f", "out/" + item.Path, "-n", depSummary.Namespace})
+		err := utils.ExecuteAndDisplay("kubectl", []string{"apply", "-f", item.Path, "-n", depSummary.Namespace})
 		if err != nil {
 			lastError = fmt.Errorf("error applying %s in %s, cause: %s", item.Name, item.Path, err.Error())
 			break
